@@ -1,57 +1,58 @@
- function course(id,name)
-{
-    this.id=id; 
-    this.name=name;
-    this.grade = 0;
-}
+ function student (courses){
 
-function student(id,name,age,course=[])
-{
-    this.id=id; 
-    this.name=name;
-    this.age=age; 
-    this.course=course;
-}
-var course1 = new course(1,"PHP");
-var course2 = new course(2,"JAVASCRIP");
-var course3 = new course(3,"C++");
-var course4 = new course(4,"C");
-
-courses=[course1,course2,course3,course4];
-
-var student1 = new student(1,"peter",20,courses);
-
-student.prototype.Display=function(){
-    
-    document.write("Student_Name :" + this.name);
-    document.write(" <br>");
-    document.write("Student_age :" + this.age);
-    document.write("<br> ");
-    document.write("Courses:" );
-    document.write("<br> ");
-    for(var i=0; i < this.course.length; i++){
-        document.write(this.course[i].name)
-        document.write("<br> ");
-        document.write(this.course[i].grade)
-    }
-}
+    this.courses=courses
 
 
-student.prototype.grade=function()
-        {
-            for(var i=0; i < this.course.length; i++){
-                var c = parseInt(prompt("Enter grade : "+this.course[i].name))
-                this.course[i].grade = c
-            }
+
+    student.prototype.display=function()
+    {    
+                for(var i=0 ;i<=courses.length-1;i++){
+
+                    if(courses[i].Age==20)
+
+          document.write( "courses : "+ this.courses[i].course)
+          document.write("<br>")
+          document.write( "Name : "+ this.courses[i].Name)
+          document.write("<br>")
+          document.write( "id : "+ this.courses[i].id)
+          document.write("<br>")
+
+
         }
 
-/* student.prototype.sum_grade=function()
-        {
-            var sum = 0
-            for(var i=0; i < this.course.length; i++){
-                sum += this.course[i].grade            }
-            return sum
-        } */
+    }
+       
 
-student1.Display();
-student1.grade();
+
+    student.prototype.sum_grade=function(){
+         
+        var sum=0;
+       
+
+        for(var i=0 ;i<=courses.length-1;i++){
+                  
+            if(courses[i].Age==20)
+            
+             sum=sum+courses[i].Grades
+                
+            
+  
+          }
+
+          return sum;
+    }
+
+
+
+
+
+}
+
+
+s2=new student ([{"id":2,"Name":"scott","Age":20,"course":"JAVASCRIPT","Grades":100},
+{"id":3,"Name":"david","Age":20,"course":"HTML","Grades":50}])
+
+s2.display()
+s2.sum_grade()
+document.write("<br>")
+document.write( "Total Grads :"+ s2.sum_grade())
